@@ -1,7 +1,8 @@
-from lib.verificacao import encontreArquivo
-from lib.interface import cabecalho, menu, submenu
+from lib.verificacao import criarArquivo
+from lib.interface import cabecalho, menu
+from time import sleep
 
-while True:    
+"""while True:    
     lista = ["Ver pessoas cadastradas", "Cadastrar nova pessoa", "Sair do Sistema"]           
     m = menu(lista)
     if m == 0:
@@ -11,4 +12,8 @@ while True:
     elif m == 2:
         cabecalho('Saindo do sistema... Até logo!')
         break
-#encontreArquivo("desafios/desafio115/dist/verificacao/lista.txt")
+    sleep(2)
+"""
+
+file = criarArquivo("desafios/desafio115/lib/verificacao/lista.txt")
+print(file)
