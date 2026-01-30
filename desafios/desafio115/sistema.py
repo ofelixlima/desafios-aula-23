@@ -1,19 +1,24 @@
-from lib.verificacao import criarArquivo
+from lib.verificacao import criarArquivo, leituraLinha, atualizaArquivo, escreveArquivo
 from lib.interface import cabecalho, menu
 from time import sleep
 
-"""while True:    
+caminho = "desafios/desafio115/lib/verificacao/lista.txt"
+while True:    
     lista = ["Ver pessoas cadastradas", "Cadastrar nova pessoa", "Sair do Sistema"]           
     m = menu(lista)
     if m == 0:
-        cabecalho('Opção 1')
+        cabecalho('PESSOAS CADASTRADAS')
+        pessoas = leituraLinha(caminho)
+        c = 0
+        for p in pessoas:
+            print(p, end="")
+            c += 1
+            if c == len(pessoas):
+                print()
     elif m == 1:
-        cabecalho('Opção 2')
+        cabecalho('CADASTRO DE PESSOAS')
+        pessoas = atualizaArquivo(caminho, str(input("Quem você quer adicionar ao arquivo?\n")).strip())
     elif m == 2:
         cabecalho('Saindo do sistema... Até logo!')
         break
     sleep(2)
-"""
-
-file = criarArquivo("desafios/desafio115/lib/verificacao/lista.txt")
-print(file)
