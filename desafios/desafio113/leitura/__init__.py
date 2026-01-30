@@ -1,4 +1,4 @@
-def leiaInt(prompt='', /, padrao=0):
+def leiaInt(prompt='', /):
     while True:
         try:
             print(prompt, end='')
@@ -10,11 +10,11 @@ def leiaInt(prompt='', /, padrao=0):
             try:
                 return leu
             except UnboundLocalError:
-                return padrao
+                return 0
         else:
             return leu
 
-def leiaFloat(prompt='', /, padrao=0):
+def leiaFloat(prompt='', /):
     while True:
         try:
             print(prompt, end='')
@@ -23,12 +23,12 @@ def leiaFloat(prompt='', /, padrao=0):
                 leu = leu.replace(',', '.')
             leu = float(leu)
         except ValueError:
-            print("\033[mERRO! Digite um número real válido.\033[m")
+            print("\033[1;31mERRO! Digite um número real válido.\033[m")
         except KeyboardInterrupt:
             print('\033[1;31m\nPrograma encerrado pelo usuário.\033[m')
             try:
                 return leu
             except UnboundLocalError:
-                return padrao
+                return 0
         else:
             return leu

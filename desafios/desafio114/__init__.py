@@ -1,5 +1,4 @@
 import requests
-from time import sleep
 try:
     resposta = requests.get("https://pudim.com.br")
     if resposta.status_code == 200:
