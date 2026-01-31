@@ -1,6 +1,7 @@
-from lib.verificacao import criarArquivo, leituraLinha, atualizaArquivo, escreveArquivo
-from lib.interface import cabecalho, menu
+from lib.verificacao import *
+from lib.interface import *
 from time import sleep
+from lib.leitura import *
 
 caminho = "desafios/desafio115/lib/verificacao/lista.txt"
 while True:    
@@ -9,15 +10,14 @@ while True:
     if m == 0:
         cabecalho('PESSOAS CADASTRADAS')
         pessoas = leituraLinha(caminho)
-        c = 0
-        for p in pessoas:
-            print(p, end="")
-            c += 1
-            if c == len(pessoas):
-                print()
+        organizarLista(pessoas)
     elif m == 1:
-        cabecalho('CADASTRO DE PESSOAS')
-        pessoas = atualizaArquivo(caminho, str(input("Quem você quer adicionar ao arquivo?\n")).strip())
+        cabecalho('NOVO CADASTRO')
+        pessoa = cadastroNome().strip()
+        idade = leiaInt('Idade: ')
+        todos = f'{pessoa};{idade}'
+        atualizaArquivo(caminho, todos)
+        print(f"{nomePessoa(pessoa)} com a idade {idade} foi adicionado com sucesso!")
     elif m == 2:
         cabecalho('Saindo do sistema... Até logo!')
         break
