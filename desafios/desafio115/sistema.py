@@ -2,26 +2,20 @@ from lib.verificacao import *
 from lib.interface import *
 from time import sleep
 from lib.leitura import *
-
-caminho = "desafios/desafio115/lib/verificacao/lista.txt"
-back = 'desafios/desafio115/lib/backup/backup.txt'
-
-"""if not arquivoExiste(main):
-    criarArquivo(main)
-    print(f"Arquivo \033[1;32m{main}\033[m criado.")
-else: 
-    print(f'Arquivo \033[1;31m{main}\033[m já existe.')
-    if not arquivoExiste(back):
-        criarArquivo(back)
-        salveBackup(back, main)
-    else: 
-        print(f'Arquivo \033[1;31m{back}\033[m já existe.')
-        salveBackup(back, main)"""
-
 while True:    
     lista = ["Ver pessoas cadastradas", "Cadastrar nova pessoa", "Sair do Sistema"]           
     m = menu(lista)
+    caminho = "desafios/desafio115/lib/verificacao/lista.txt"
+    back = 'desafios/desafio115/lib/backup/backup.txt'
     if m == 0:
+        if arquivoExiste(back):
+            if not arquivoExiste(caminho):
+                criarArquivo(caminho)
+                escreveArquivo(caminho, leituraCompleta(back))
+        elif arquivoExiste(caminho):
+            if not arquivoExiste(back):
+                criarArquivo(back)
+                salveBackup(back, caminho)
         cabecalho('PESSOAS CADASTRADAS')
         pessoas = leituraLinha(caminho)
         organizarLista(pessoas)
