@@ -4,6 +4,20 @@ from time import sleep
 from lib.leitura import *
 
 caminho = "desafios/desafio115/lib/verificacao/lista.txt"
+back = 'desafios/desafio115/lib/backup/backup.txt'
+
+"""if not arquivoExiste(main):
+    criarArquivo(main)
+    print(f"Arquivo \033[1;32m{main}\033[m criado.")
+else: 
+    print(f'Arquivo \033[1;31m{main}\033[m já existe.')
+    if not arquivoExiste(back):
+        criarArquivo(back)
+        salveBackup(back, main)
+    else: 
+        print(f'Arquivo \033[1;31m{back}\033[m já existe.')
+        salveBackup(back, main)"""
+
 while True:    
     lista = ["Ver pessoas cadastradas", "Cadastrar nova pessoa", "Sair do Sistema"]           
     m = menu(lista)
